@@ -12,12 +12,13 @@ public class Solution_2_simpleArraySum {
      * Complete the simpleArraySum function below.
      */
     static int simpleArraySum(int[] ar) {
-        /*
-         * Write your code here.
-         */
-
          return (int) Arrays.stream(ar).reduce(0, (x,y) -> x+y);
+    }
+    
+    // Complete the aVeryBigSum function below.
+    static long aVeryBigSum(long[] ar) {
 
+        return Arrays.stream(ar).reduce(0,(a,b)->a+b);
     }
 
     private static final Scanner scanner = new Scanner(System.in);
