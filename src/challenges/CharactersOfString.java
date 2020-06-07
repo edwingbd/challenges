@@ -10,8 +10,6 @@ public class CharactersOfString {
     // all distinct characters 
 	 static String findSubStringLento(String str) 
 	 { 
-		 char[] arrChar = str.toCharArray();
-		 List<Character> lstChar =str.chars().mapToObj(e-> (char) e).collect(Collectors.toList());
 		 List<Character> lstChar2 = str.chars().mapToObj(e-> (char) e).collect(Collectors.toList());
 		 char value;
 		 boolean flag=true;
