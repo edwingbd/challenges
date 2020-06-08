@@ -5,19 +5,59 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Problems_6_10 {
+public class Problems_6_to_10 {
 
 	public static void main(String[] args) {
-		//problem6();
-		//problem7();
-		//problem8();
+		problem6();
+		problem7();
+		problem8();
 		problem9();
+		problem10();
 	}
 
 	public static void problemX() {
 		System.out.println("Solve problem X Euler");
 		System.out.println("	Solution problem X Euler");
 	}
+	/*The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+	 * Find the sum of all the primes below two million.
+	 * 11:09->
+	 * */
+	public static List<Integer> lstPrime;
+	public static void problem10() {
+		System.out.println("Solve problem 10 Euler");
+		lstPrime = new ArrayList<Integer>();
+		lstPrime.add(1);
+		for(int i=1;;i++) {
+			lstPrime.add(nextPrime(lstPrime.get(lstPrime.size()-1) ));
+			if(lstPrime.get(lstPrime.size()-1)>2000000)
+			{
+				//System.out.println("	greater thant 2millions="+lstPrime.get(lstPrime.size()-1) );
+				lstPrime.remove(lstPrime.size()-1);
+				break;
+			}
+		}
+		System.out.println("	Solution problem 11 Euler="+lstPrime );
+		System.out.println("	Solution problem 11 Euler sum="+lstPrime.stream().map(Integer::longValue).reduce(0l,(a,b)->a+b)  );
+	}
+	
+	public static Integer nextPrime(Integer num) {
+		num++;
+		if(num<4)
+			return num;
+		else
+		{
+			for(int i=1;i<lstPrime.size()-1;i++) {
+				if(num%lstPrime.get(i)==0) {
+					i=0;
+					num++;
+				}
+			}
+		}
+		//System.out.println(" lstPrime="+(lstPrime.size()-1)+" lengt="+lstPrime.get(lstPrime.size()-1).toString().length() );
+		return num;
+	}
+	
 	/*A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,
 	 * a2 + b2 = c2
 	 * For example, 32 + 42 = 9 + 16 = 25 = 52.

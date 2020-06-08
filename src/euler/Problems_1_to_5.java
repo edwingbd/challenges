@@ -98,9 +98,8 @@ public class Problems_1_to_5 {
 
 	public static long nextPrime(long prime) {
 		// prime+=1;
-		if (prime < 4)
+		if (prime < 3)
 			return prime + 1;
-		Boolean flag = true;
 		prime += 1;
 		for (int i = 0; i < primeNumbers.size() || i > prime; i++) {
 			if (prime % primeNumbers.get(i) == 0) {
