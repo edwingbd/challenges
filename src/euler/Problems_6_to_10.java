@@ -21,7 +21,7 @@ public class Problems_6_to_10 {
 	}
 	/*The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 	 * Find the sum of all the primes below two million.
-	 * 11:09->
+	 * 30 min
 	 * */
 	public static List<Integer> lstPrime;
 	public static void problem10() {
