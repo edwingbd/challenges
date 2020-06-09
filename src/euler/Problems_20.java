@@ -11,8 +11,8 @@ public class Problems_20 {
 	public static void main(String[] args) {
 //		problem20();
 //		problem30();
-		problem40();
-//		problem50();
+//		problem40();
+		problem50();
 //		problem60();
 	}
 
@@ -20,10 +20,99 @@ public class Problems_20 {
 		System.out.println("Solve problem X Euler");
 		System.out.println("	Solution problem X Euler");
 	}
+	/*The prime 41, can be written as the sum of six consecutive primes:
+	 * 41 = 2 + 3 + 5 + 7 + 11 + 13
+	 * This is the longest sum of consecutive primes that adds to a prime below one-hundred.
+	 * The longest sum of consecutive primes below one-thousand that adds to a prime, contains 21 terms, 
+	 * 	and is equal to 953.
+	 * Which prime, below one-million, can be written as the sum of the most consecutive primes?
+	 * 1:20am
+	 * */
+	public static void problem50() {
+		System.out.println("Solve problem X50 euler");
+		lstPrime = new ArrayList<Integer>();
+		lstPrime.add(1);
+		while(true){
+			lstPrime.add(nextPrime(lstPrime.get(lstPrime.size()-1) ));
+			if(lstPrime.get(lstPrime.size()-1)>100)
+			{
+				//System.out.println("	greater thant 2millions="+lstPrime.get(lstPrime.size()-1) );
+				lstPrime.remove(lstPrime.size()-1);
+				break;
+			}
+		}
+		System.out.println(lstPrime);
+		Integer position = lstPrime.size()-1;
+		Integer positionlast = position-2;
+		Integer sum=0;
+		Integer actual=0;
+		while(position>2) {
+			actual=lstPrime.get(position);
+			sum=lstPrime.subList(positionlast, position-1).stream().reduce(0,(a,b)->a+b);
+			if(sum==actual) {
+				System.out.println(lstPrime.subList(positionlast, position-1));
+				position--;
+				positionlast=position-1;				
+			}
+			else if(sum<actual) {
+				positionlast-=1;
+			}else {
+				position--;
+				positionlast=position-1;
+			}
+		}
+		System.out.println("	Solution problem 50 Euler");
+	}
+	public static List<Integer> lstPrime;
+	public static Integer nextPrime(Integer num) {
+		num++;
+		if(num<4)
+			return num;
+		else
+		{
+			for(int i=1;i<lstPrime.size()-1;i++) {
+				if(num%lstPrime.get(i)==0) {
+					i=0;
+					num++;
+				}
+			}
+		}
+		return num;
+	}
 	
+	/*An irrational decimal fraction is created by concatenating the positive integers:
+	 * 0.123456789101112131415161718192021...
+	 * 	 12345678901234567892	
+	 * It can be seen that the 12th digit of the fractional part is 1.
+	 * If dn represents the nth digit of the fractional part, find the value of the following expression.
+	 * d1 × d10 × d100 × d1000 × d10000 × d100000 × d1000000
+	 * 11:05-11:44->39 Minutes
+	 * */
 	public static void problem40() {
 		System.out.println("Solve problem 40 Euler");
-		System.out.println("	Solution problem 40 Euler");
+		HashMap<Integer, Integer> hmPosDigit = new HashMap<Integer, Integer>();
+		Boolean isDone=true;
+		Long number=1l;
+		String strNumber=String.valueOf(number) ;
+		Integer actualPos=0;
+		Integer digit=1;
+		hmPosDigit.put(1, digit);
+		Integer searchPos=1;
+		do {
+			if(actualPos+ strNumber.length() >=  searchPos) {
+				digit=Integer.parseInt((String) strNumber.subSequence((searchPos-actualPos-1) , (searchPos-actualPos))) ;
+				hmPosDigit.put(searchPos, digit);
+				searchPos=searchPos*10;
+				if(searchPos==10000000)
+					isDone=false;
+			}
+			actualPos+=strNumber.length();
+			number+=1l;
+			strNumber=String.valueOf(number);
+		}while(isDone);
+		System.out.println(hmPosDigit);
+		
+		System.out.println("	Solution problem 40 Euler =" +(hmPosDigit.values().stream().reduce(1,(a,b)->a*b)) );
 	}
 	
 	/**Surprisingly there are only three numbers that can be written as the sum of fourth powers of their digits:

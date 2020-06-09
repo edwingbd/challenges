@@ -29,9 +29,9 @@ public class ContactProblem {
 			int charCode = getCharIndex(current);
 		}
 		
-		public int findCount(String s,int index) {
-			
-		}
+//		public int findCount(String s,int index) {
+//			
+//		}
 	}
 	public static void main(String[] args) {
 		
