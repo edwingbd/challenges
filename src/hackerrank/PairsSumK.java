@@ -13,6 +13,7 @@ public class PairsSumK {
 	/*
 	 * 6:48
 	 * 3 escribir
+	 * 5 explicando
 	 * */
 	public static int calculatePairsSumK(int[] arr,int k) {
 		return 0;
