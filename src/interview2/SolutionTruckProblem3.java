@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class SolutionTruckProblem3{
-	
+	// 2019
 	public static void main(String[] args) {
 		List<List<Integer>> allLocations = new ArrayList<>();
 		int numDestinations = 3;
@@ -52,7 +52,7 @@ public class SolutionTruckProblem3{
 		return lstReturn;  
 	}
 }
-	class Location{
+	static class Location{
 		private int locX;
 		private int locY;
 		private double distance;

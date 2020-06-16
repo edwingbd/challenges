@@ -1,0 +1,59 @@
+/*Amazon Media Ecoder is a highly scalabel. easy to use and a cost-effective way for developers and business to convert media files from their source format into version that will playback on devices like smartphones. Whenever a media file needs to be processed by the encoder, it partitions the media file into N subfiles each subfile is processd independently during this process each sub file gets compressed. these compressed sub files are then merged by the encoder.
+
+the encoder can merge only two file at a time the time requiered to merge the two files is equal to the sum of their sizes the size of this merged file is also equal to the sum of their sizes. this process is repeated until the N sub files are merged into a single output file.
+
+write an algorithm to output the minimum possible time to merge the given N subfiels into a Single file
+Input
+The input to the function/method consist of two arguments:
+-numOfSubFile, an integer represeting the number of the subfile;
+files,a list of integers representing the sixe of the compressed Subfiles.
+Output
+Return an ineger represent the minumum time requiere to merger all the subfiles
+
+Constraints 2<= numOfSubFiles <= 10^6
+1 <= files[i] <= 10^6
+0<= i <= numOfSubFiles
+
+Example
+Input  
+- numOfSubFile=4
+- file [4,8,6,12]
+
+output 
+58 
+ * */
+ --- Robot Patch 2
+you  are in charge of preparing a rencelty purchased lot fo ine of amazons's new building the lot is covered with trenches and has a single obstacle that need to be taked down before the foundation can be prpared for the building the demolition robor must remove the obstacle berfoer progress can be made on the building 
+
+write an alortighm to determinae the minimum distance requierd for the demolition robot to remove the obstacle.
+
+assumptions:
+-the los tis flat, except for trenches, and can be represented as a two-dimensional grid.
+-The demolition robot must start from the top-keft corner of the lot, which is always flat, and can move one block up,down,left, or right at a time.
+- the demolition robot cannot enter trenches and cannot leave the lot.
+the flat areas are represente as 1 areas whit trhenches are repeste by 0 and the obstacle is represte by 9
+
+Input:
+The input to the function/method consist if three arguemnts:
+- NumbRows an integer represting the number of rows
+- num Columns an integer representing the number of columns lots,
+- lot representeing the two dimensional grid of integers.
+
+Output:
+return an intere represitn the minimum distance traversed to remvoe the obstacle else return -1
+
+Constrain
+1<= numRows, numColumns <= 1000
+
+Example
+numRows 3;
+numColumns = 3;
+lot = 
+[[1,0,0]
+ [1,0,0]
+ [1,9,1]]
+output
+3
+Explanation
+Starting From the top lef corner , the demolition robot traversed the cells (0,0)->(1,0)->(2,0)->(2,1) the robot traversed the total distance 3 to remove the obstacle so the output is 3
+ 
