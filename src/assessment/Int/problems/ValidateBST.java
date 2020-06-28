@@ -28,8 +28,8 @@ public class ValidateBST {
 		@Override
 		public String toString() {
 			// TODO Auto-generated method stub
-			return "{"+this.val+">"+(this.right==null?"":this.right.toString())+
-					"<"+(this.left==null?"":this.left.toString())+"} " ;
+			return " "+this.val+","+(this.left==null?"null":this.left.toString())+
+					","+(this.right==null?"null":this.right.toString())+"" ;
 		}
 	}
     /*8:00 8:26*/
@@ -54,17 +54,34 @@ public class ValidateBST {
 		treeNodeRight= new TreeNode(4,new TreeNode(3),new TreeNode(6) );
 		treeNode= new TreeNode(5, treeNodeLeft ,treeNodeRight);
 		System.out.println("treeNode"+treeNode);
-		System.out.println("true = IsValid "+isValidBST(treeNode) );
+		System.out.println("false = IsValid "+isValidBST(treeNode) );
+		
+		/*
+		      [3,
+		1,           5,
+	0,        2,   4,  6,
+null,null,null, 3]
+		expected false
+*/
+		treeNodeLeft= new TreeNode(1,new TreeNode(0),new TreeNode(2,null,new TreeNode(3)) );
+		treeNodeRight= new TreeNode(5,new TreeNode(4),new TreeNode(6) );
+		treeNode= new TreeNode(3, treeNodeLeft ,treeNodeRight);
+		System.out.println("treeNode"+treeNode);
+		System.out.println("false = IsValid "+isValidBST(treeNode) );
 
 	}
 
 	public static boolean isValidBST(TreeNode root) {
-		if( null == root.right && root.left == null )
+		return isValidBST(root,null,null);
+	}
+	
+	public static boolean isValidBST(TreeNode root,Integer min ,Integer max ) {
+		if(root == null)
 			return true;
-		if (null!= root.right && root.val >= root.right.val )
+		if( null != max && root.val >=max )
 			return false;
-		if (null!= root.left  && root.left.val >= root.val)
+		if( null != min && root.val <=min )
 			return false;
- 		return isValidBST(root.right) && isValidBST(root.left);
+		return isValidBST(root.left,min,root.val) && isValidBST(root.right,root.val,max);
 	}
 }
