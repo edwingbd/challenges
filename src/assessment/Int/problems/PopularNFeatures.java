@@ -1,4 +1,4 @@
-package amazon.Int.problems;
+package assessment.Int.problems;
 
 import java.util.*;
 

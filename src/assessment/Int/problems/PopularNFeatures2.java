@@ -1,6 +1,6 @@
-package amazon.Int.problems;
+package assessment.Int.problems;
 
-import java.util.*;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 class PopularNFeatures2 {

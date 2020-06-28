@@ -1,4 +1,4 @@
-package amazon.Int.solutions;
+package assessment.Int.solutions;
 
 import java.util.*;
 import java.util.Map.Entry;
